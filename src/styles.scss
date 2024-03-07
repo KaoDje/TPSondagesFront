@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  box-sizing: border-box;
+  font-family: "Arial";
+}
+
+button {
+  color: #f3f3f3;
+  padding: 20px;
+  background-color: #202020;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 50px;
+  margin-top: 30px;
+  align-self: center;
+  &:hover {
+    cursor: pointer;
+  }
+}

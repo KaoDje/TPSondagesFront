@@ -1,0 +1,84 @@
+<!-- <div class="container">
+  <h1>{{ sondage.nom }}</h1>
+  <form #sondageForm="ngForm" (ngSubmit)="onSubmit(sondageForm)">
+    <div class="questions-list">
+      <app-question
+        *ngFor="let question of sondage.questions"
+        [question]="question"
+      ></app-question>
+      <button type="submit">Envoyer les réponses</button>
+    </div>
+  </form>
+</div> -->
+
+<!-- <div class="container">
+  <h1>{{ sondage.nom }}</h1>
+  <form #sondageForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="questions-list">
+      <div
+        class="container"
+        *ngFor="let question of sondage.questions; let idx = index"
+      >
+        <h2>{{ idx + 1 }} - {{ question.intitule }}</h2>
+        <div *ngIf="question.type === 'ouverte'">
+          <label [for]="reponse">Réponse :</label>
+          <input type="text" id="reponse" name="reponseOuverte" />
+        </div>
+        <div *ngIf="question.type === 'qcm'">
+          <div *ngFor="let reponse of question.reponses; let i = index">
+            <input
+              type="checkbox"
+              [id]="reponse"
+              [value]="reponse"
+              name="reponse-{{ i }}"
+            />
+            <label [for]="reponse">{{ reponse }}</label>
+            <br /><br />
+          </div>
+        </div>
+      </div>
+
+      <button type="submit">Envoyer les réponses</button>
+    </div>
+  </form>
+</div> -->
+
+<button class="back" (click)="navHome()">Page d'accueil</button>
+
+<div class="container">
+  <h1>{{ sondage.nom }}</h1>
+  <form #sondageForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="questions-list">
+      <div
+        class="container"
+        *ngFor="let question of sondage.questions; let idx = index"
+      >
+        <h2>{{ idx + 1 }} - {{ question.intitule }}</h2>
+        <div *ngIf="question.type === 'ouverte'">
+          <label [for]="'reponse-' + idx">Réponse :</label>
+          <input
+            type="text"
+            [id]="'reponse-' + idx"
+            [(ngModel)]="question.reponseOuverte"
+            name="reponseOuverte-{{ idx }}"
+          />
+        </div>
+        <div *ngIf="question.type === 'qcm'">
+          <div *ngFor="let reponse of question.reponses; let i = index">
+            <input
+              type="checkbox"
+              [id]="'reponse-' + idx + '-' + i"
+              [(ngModel)]="reponse.checked"
+              name="reponse-{{ idx }}-{{ i }}"
+            />
+            <label [for]="'reponse-' + idx + '-' + i">{{
+              reponse.intitule
+            }}</label>
+            <br /><br />
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit">Envoyer les réponses</button>
+  </form>
+</div>

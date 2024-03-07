@@ -1,0 +1,26 @@
+<div class="container">
+  <form action="submit">
+    <div class="elem">
+      <label for="intitule">Intitule</label>
+      <input type="text" name="intitule" id="intitule" [(ngModel)]="intitule" />
+    </div>
+    <div class="elem">
+      <label for="type">Type de réponse</label>
+      <select name="type" id="type" [(ngModel)]="typeReponse">
+        <option value="ouverte">Ouverte</option>
+        <option value="qcm">QCM</option>
+      </select>
+    </div>
+    <div class="elem" *ngIf="typeReponse == 'qcm'">
+      <label for="reponses">Reponses</label>
+      <div *ngFor="let rep of reponses">
+        <input type="checkbox" /> <label for="">{{ rep }}</label>
+      </div>
+      <input id="textReponse" type="text" />
+      <button id="add-reponse" (click)="addReponse()">add</button>
+    </div>
+
+    <label for=""></label>
+    <button type="submit" (click)="onSubmit()">Ajouter la question</button>
+  </form>
+</div>

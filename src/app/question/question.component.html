@@ -1,0 +1,39 @@
+<!-- question.component.html -->
+<!-- <div class="container">
+  <h2>{{ question.intitule }}</h2>
+  <div *ngIf="question.type === 'ouverte'">
+    <label for="reponse">Réponse :</label>
+    <input type="text" id="reponse" name="reponseOuverte" />
+  </div>
+  <div *ngIf="question.type === 'qcm'">
+    <div *ngFor="let reponse of question.reponses; let i = index">
+      <input
+        type="checkbox"
+        [id]="reponse"
+        [value]="reponse"
+        name="reponse-{{ i }}"
+      />
+      <label [for]="reponse">{{ reponse }}</label>
+    </div>
+  </div>
+  <button (click)="test()">Test</button>
+</div> -->
+
+<div class="container">
+  <h2>{{ question.intitule }}</h2>
+  <div *ngIf="question.type === 'ouverte'">
+    <label for="reponse">Réponse :</label>
+    <input type="text" id="reponse" name="reponseOuverte" />
+  </div>
+  <div *ngIf="question.type === 'qcm'">
+    <div *ngFor="let reponse of question.reponses; let i = index">
+      <input
+        type="checkbox"
+        [id]="reponse"
+        [value]="reponse"
+        name="reponse-{{ i }}"
+      />
+      <label for="reponse">{{ reponse.intitule }}</label>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <input type="text" id="title" placeholder="Titre" />
+  <div class="questions-list">
+    <app-question
+      *ngFor="let question of sondage.questions"
+      [question]="question"
+    ></app-question>
+  </div>
+  <app-create-question
+    *ngIf="isAddingQuestion == true"
+    (messageEvent)="receiveQuestion($event)"
+  ></app-create-question>
+  <button (click)="addQuestion()" *ngIf="isAddingQuestion == false">
+    Nouvelle question
+  </button>
+  <button (click)="onSubmit()">Enregistrer le sondage</button>
+</div>

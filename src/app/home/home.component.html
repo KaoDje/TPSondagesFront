@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Bienvenue sur YnovForm</h1>
+  <button (click)="onCreateSondage()">Créer un nouveau sondage</button>
+  <h2>Il y a actuellement sondages disponibles :</h2>
+  <div class="sondage-list" *ngFor="let sondage of sondages$ | async">
+    <app-sondage-overview [sondage]="sondage"></app-sondage-overview>
+  </div>
+</div>
